@@ -1,0 +1,60 @@
+name: Kurslarni yangilash
+
+on:
+  schedule:
+    # Har soat. Diqqat: GitHub cron'i kafolatlanmagan, 5-20 daqiqa kechikishi odatiy.
+    - cron: "7 * * * *"
+  workflow_dispatch:        # qo'lda ishga tushirish tugmasi
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "data/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kurs-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Banklardan kurslarni olish
+        env:
+          SITE_NAME: ${{ vars.SITE_NAME }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        # Bir nechta bank ishlamasa ham to'xtamaydi — xatolar state.json ga yoziladi
+        run: python -m app.cli update
+
+      - name: Statik saytni yig'ish
+        env:
+          SITE_NAME: ${{ vars.SITE_NAME }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: python -m app.cli build
+
+      - name: Holatni ko'rsatish
+        run: python -m app.cli status
+
+      - name: O'zgarishlarni saqlash
+        run: |
+          git config user.name  "kurs-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs
+          if git diff --cached --quiet; then
+            echo "O'zgarish yo'q, commit qilinmadi"
+          else
+            git commit -m "kurslar: $(date -u '+%Y-%m-%d %H:%M') UTC"
+            git push
+          fi
