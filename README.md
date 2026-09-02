@@ -27,7 +27,9 @@ CDN'dan uzatiladi.
    folder `/docs`.
 3. **Settings -> Actions -> General -> Workflow permissions**:
    "Read and write permissions" ni yoqing (bot commit qila olishi uchun).
-4. **Settings -> Variables** ga `SITE_NAME` va `SITE_URL` qo'shing.
+4. `app/config.py` dagi `SITE_URL` ni o'z manzilingizga o'zgartiring
+   (yoki xohlasangiz Settings -> Secrets and variables -> Actions ->
+   Variables da `SITE_NAME` / `SITE_URL` qo'shing — ikkalasi ham ishlaydi).
 5. Actions bo'limidan workflow'ni bir marta qo'lda ishga tushiring.
 
 Bilib qo'yish kerak bo'lgan cheklovlar:

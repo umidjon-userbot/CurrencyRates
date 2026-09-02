@@ -1,0 +1,136 @@
+{
+  "background": "daily_bg.png",
+  "size": [
+    1080,
+    1080
+  ],
+  "bg_color": "#0E1826",
+  "font_regular": "DejaVuSans.ttf",
+  "font_bold": "DejaVuSans-Bold.ttf",
+  "text": [
+    {
+      "text": "{currency} kursi",
+      "x": 60,
+      "y": 70,
+      "size": 62,
+      "font": "bold",
+      "color": "#F2F5F8"
+    },
+    {
+      "text": "{date}",
+      "x": 1020,
+      "y": 92,
+      "size": 34,
+      "font": "regular",
+      "color": "#7C8AA0",
+      "align": "right"
+    },
+    {
+      "text": "Markaziy bank: {official} so'm",
+      "x": 60,
+      "y": 168,
+      "size": 30,
+      "font": "regular",
+      "color": "#7C8AA0"
+    },
+    {
+      "text": "Eng qimmatga oladi",
+      "x": 100,
+      "y": 316,
+      "size": 26,
+      "font": "regular",
+      "color": "#7C8AA0"
+    },
+    {
+      "text": "{best_buy_bank}",
+      "x": 100,
+      "y": 356,
+      "size": 34,
+      "font": "regular",
+      "color": "#C9D4E0"
+    },
+    {
+      "text": "{best_buy}",
+      "x": 100,
+      "y": 404,
+      "size": 46,
+      "font": "bold",
+      "color": "#3FCB92"
+    },
+    {
+      "text": "Eng arzonga sotadi",
+      "x": 590,
+      "y": 316,
+      "size": 26,
+      "font": "regular",
+      "color": "#7C8AA0"
+    },
+    {
+      "text": "{best_sell_bank}",
+      "x": 590,
+      "y": 356,
+      "size": 34,
+      "font": "regular",
+      "color": "#C9D4E0"
+    },
+    {
+      "text": "{best_sell}",
+      "x": 590,
+      "y": 404,
+      "size": 46,
+      "font": "bold",
+      "color": "#3FCB92"
+    },
+    {
+      "text": "{note}",
+      "x": 60,
+      "y": 1005,
+      "size": 22,
+      "font": "regular",
+      "color": "#66738A"
+    },
+    {
+      "text": "{site}",
+      "x": 1020,
+      "y": 1005,
+      "size": 22,
+      "font": "regular",
+      "color": "#66738A",
+      "align": "right"
+    }
+  ],
+  "list": {
+    "x": 60,
+    "y": 552,
+    "row_height": 62,
+    "max_rows": 6,
+    "header": true,
+    "header_size": 24,
+    "header_height": 58,
+    "header_color": "#66738A",
+    "highlight_color": "#3FCB92",
+    "name": {
+      "dx": 0,
+      "size": 32,
+      "color": "#E4EAF1",
+      "align": "left"
+    },
+    "buy": {
+      "dx": 720,
+      "size": 32,
+      "color": "#E4EAF1",
+      "align": "right"
+    },
+    "sell": {
+      "dx": 960,
+      "size": 32,
+      "color": "#E4EAF1",
+      "align": "right"
+    },
+    "labels": {
+      "name": "Bank",
+      "buy": "Oladi",
+      "sell": "Sotadi"
+    }
+  }
+}
